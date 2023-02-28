@@ -1,25 +1,15 @@
 <template>
   <ul>
     <li>
-      <a :href="switchLocalePath('en')" :class="{ 'router-link-active': locale == 'en' }"> <span> EN </span> </a>
+      <a :href="switchLocalePath('en')"> EN </a>
     </li>
     <li>
-      <a :href="switchLocalePath('de')" :class="{ 'router-link-active': locale == 'de' }"> <span> DE </span> </a>
+      <a :href="switchLocalePath('de')"> DE </a>
     </li>
   </ul>
 </template>
 
-<script>
-import { useSwitchLocalePath } from '#imports';
-
-export default {
-  setup() {
-    const switchLocalePath = useSwitchLocalePath();
-
-    return {
-      switchLocalePath
-    };
-  }
-};
+<script setup>
+  const { locale } = useI18n()
+  const switchLocalePath = useSwitchLocalePath();
 </script>
-
